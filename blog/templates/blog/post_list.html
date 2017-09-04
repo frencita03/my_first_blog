@@ -6,19 +6,17 @@
         <div>
             <h1><a href="">Django Blog</a></h1>
         </div>
+post={{posts}}
+       
+    <h1><a href="/">Django  Posts</a></h1>
+</div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>The first div element contains the title of our blog – it's a heading and a link.Another two div elements contain our blogposts with a published date, h2 with a post title that is clickable and two ps (paragraph) of text, one for the date and one for our blogpost.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Yaaay! But so far, our template only ever displays exactly the same information – whereas earlier we were talking about templates as allowing us to display different information in the same format.
-
-.</p>
-        </div>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
     </body>
 </html>
